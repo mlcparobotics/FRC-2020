@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
@@ -30,7 +31,8 @@ public class IntakeMove extends CommandBase {
   @Override
   public void execute() {
     double RightTrigger = Robot.m_Constants.driveControllerAxis(RobotContainer.Trigger_3);
-    Robot.intake.setBothMotors(RightTrigger);
+    Robot.intake.setBothMotors(Constants.intakeMagicNum);
+
   }
 
   // Called once the command ends or is interrupted.

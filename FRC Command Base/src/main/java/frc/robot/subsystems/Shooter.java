@@ -20,20 +20,15 @@ public class Shooter extends SubsystemBase {
   private TalonSRX shooterBottom = new TalonSRX(RobotContainer.ShooterBottom_1);
   
   public Shooter() {
-
-  }
-  public void setSlave(){
     shooterBottom.follow(shooterTop);
     shooterBottom.setInverted(InvertType.FollowMaster);
-    
-  }
-  public void config(){
     shooterTop.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
     shooterBottom.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+    shooterTop.setSelectedSensorPosition(0, 0, 10);
   }
-  public void setSensorPosition(int sensorPos, int pidIdx, int timeoutMs){
-    shooterTop.setSelectedSensorPosition(sensorPos, pidIdx, timeoutMs);
-  }
+
+  
+  
   public void isInvtered(boolean x){
     shooterTop.setInverted(x);
   }

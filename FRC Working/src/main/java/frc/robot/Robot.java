@@ -87,12 +87,7 @@ private DifferentialDrive drive = new DifferentialDrive(leftDrive, rightDrive);
   @Override
   public void teleopPeriodic() {
     double speed = controller.getThrottle();
-    if(speed<0){
-      shooterTop.set(ControlMode.PercentOutput, Math.abs(speed));
-    }else{
-      shooterTop.set(ControlMode.PercentOutput, 0);
-    
-    }
+    shooterTop.set(ControlMode.PercentOutput, speed*-.4+.6);
     
   if(controller.getRawButton(5)){
     leftDriveEncoder.reset();

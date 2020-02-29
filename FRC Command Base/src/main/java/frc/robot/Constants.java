@@ -25,5 +25,7 @@ public final class Constants {
     public double driveControllerAxis(int axis){
        return driveController.getRawAxis(axis);
     }
+    public static double intakeMagicNum = .4;
+    public static double shooterMagicNum = .4;
     
 }

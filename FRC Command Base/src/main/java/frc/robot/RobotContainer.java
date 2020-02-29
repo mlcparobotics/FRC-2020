@@ -22,17 +22,26 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   
+//Motor Controllers
+      //drive PWM ports SPARKS
+        public static final int Motor_Left_0 = 0;
+        public static final int Motor_Right_1 = 1;
+      //Shooter ID TALONS
+       public static final int ShooterTop_0 = 0;
+       public static final int ShooterBottom_1 = 1;
+      //Intake PWM ports VICTORSP
+       public static final int Intake_2 = 2;
+        public static final int Intake_3 = 3;
+      //Conveyer PWM ports VICTORSP
+      public static final int Conveyer_3 = 0;
+      //Controller MAIN- LOGITECH
+        public static final int Drive_Controller_0 = 0;
+        public static final int Left_Stick_1 = 1;
+        public static final int Right_Stick_5= 5;
+        public static final int Joystick_1 = 1;
+        public static final int Shooter_2 = 2;
+      
 
-  public static final int Motor_Left_0 = 0;
-  public static final int Motor_Right_1 = 1;
-public static final int Drive_Controller_0 = 0;
-public static final int Left_Stick_1 = 1;
-public static final int Right_Stick_5= 5;
-public static final int Intake_2 = 2;
-public static final int Intake_3 = 3;
-public static final int Joystick_1 = 1;
-public static final int ShooterTop_0 = 0;
-public static final int ShooterBottom_1 = 1;
 public static int Trigger_3 = 3;
 
 /**

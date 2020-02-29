@@ -30,6 +30,7 @@ private Command TankDrive= new TankDrive();
 public static Intake intake = new Intake();
 private Command IntakeMove = new IntakeMove();
 public static Shooter shooter = new Shooter();
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.

@@ -17,6 +17,7 @@ public class Shoot extends CommandBase {
   /**
    * Creates a new Shoot.
    */
+  double toggle=0;
   public Shoot() {
     Robot.shooter.setSettings();
     // Use addRequirements() here to declare subsystem dependencies.
@@ -33,7 +34,14 @@ public class Shoot extends CommandBase {
   @Override
   public void execute() {
      double speed = -.4*Robot.m_Constants.getjoystickAxis(RobotContainer.shooterAxis_3)+.6;
-      Robot.shooter.setMaster(speed);
+     
+     if(Robot.m_Constants.getJoystickButton(4)){
+       toggle=0;
+     }
+     if(Robot.m_Constants.getJoystickButton(3)){
+       toggle =1;
+     }
+     Robot.shooter.setMaster(speed*toggle);
       SmartDashboard.putNumber("Shooter Output Top", Robot.shooter.getTopShooterOutPut() );
       SmartDashboard.putNumber("Shooter Output Bottom", Robot.shooter.getBottomShooterOutPut() );
      

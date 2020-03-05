@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.Convey;
 //import frc.robot.commands.Convey;
 import frc.robot.commands.IntakeMove;
+import frc.robot.commands.MoveForward;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.TankDrive;
 import frc.robot.subsystems.Conveyor;
@@ -38,7 +39,7 @@ public static Shooter shooter = new Shooter();
 private Command Shoot = new Shoot();
 public static Conveyor conveyor = new Conveyor();
 private Command convey = new Convey();
-
+private Command MoveForward = new MoveForward();
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -97,6 +98,7 @@ private Command convey = new Convey();
    */
   @Override
   public void autonomousPeriodic() {
+    MoveForward.execute();
   }
 
   @Override
@@ -136,6 +138,7 @@ private Command convey = new Convey();
     Shoot.execute();
     IntakeMove.execute();
     convey.execute();
+    TankDrive.execute();
   }
   
 }

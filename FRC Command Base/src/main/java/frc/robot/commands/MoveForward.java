@@ -7,20 +7,16 @@
 
 package frc.robot.commands;
 
-
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.RobotContainer;
 
-public class TankDrive extends CommandBase {
+public class MoveForward extends CommandBase {
   /**
-   * Creates a new TankDrive.
+   * Creates a new MoveForward.
    */
-  double toggle=1;
-  public TankDrive() {
+  public MoveForward() {
     // Use addRequirements() here to declare subsystem dependencies.
-  
- addRequirements(Robot.driveTrain);
+    addRequirements(Robot.driveTrain);
   }
 
   // Called when the command is initially scheduled.
@@ -32,17 +28,10 @@ public class TankDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    
-    if(Robot.m_Constants.getJoystickButton(3)){
-      toggle=-1;
+    Robot.driveTrain.resetBothEncoders();
+    while(Robot.driveTrain.getLeftDriveEncoderDistance()<3){
+      Robot.driveTrain.setBothMotors(Robot.m_Constants.magicMoveForwardAt4,-Robot.m_Constants.magicMoveForwardAt4 );
     }
-    if(Robot.m_Constants.getJoystickButton(2)){
-      toggle =1;
-    }
-    double RightY = Robot.m_Constants.driveControllerAxis(RobotContainer.Right_Stick_5);
-    double LeftY = Robot.m_Constants.driveControllerAxis(RobotContainer.Left_Stick_1);
-    Robot.driveTrain.setBothMotors(toggle*LeftY,-RightY*toggle);
-    
   }
 
   // Called once the command ends or is interrupted.

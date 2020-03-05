@@ -35,7 +35,7 @@ public class IntakeMove extends CommandBase {
       Robot.intake.setBothMotors(Robot.m_Constants.magicNumIntake);
 
     }else{
-      Robot.conveyor.setConveyerSpeed(0);
+      Robot.intake.setBothMotors(0);
 
     }
   

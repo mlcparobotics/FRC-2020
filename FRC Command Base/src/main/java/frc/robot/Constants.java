@@ -31,6 +31,13 @@ public final class Constants {
     public double driveControllerAxis(int axis){
        return driveController.getRawAxis(axis);
     }
-    public double magicNumIntake = .4;
+    public boolean getDriveControllerButton(int button){
+        return driveController.getRawButtonPressed(button);
+    }
+    public double magicNegFlip = -1;
+    public double flipControl = 0;
+    public double magicNumIntake = -.4;
     public double magicNumConvey = .3;
+    public double magicMoveForwardAt4 = .3;
+
 }

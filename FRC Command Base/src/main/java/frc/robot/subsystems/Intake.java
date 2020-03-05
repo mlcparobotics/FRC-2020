@@ -7,21 +7,24 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
 import frc.robot.commands.IntakeMove;
 
 public class Intake extends SubsystemBase {
-  private VictorSP intake1VictorSP = new VictorSP(RobotContainer.Intake_2);
-  private VictorSP intake2VictorSP = new VictorSP(RobotContainer.Intake_3);
+ private VictorSPX intake1VictorSPX = new VictorSPX(RobotContainer.Intake_2);
+  private VictorSPX intake2VictorSPX = new VictorSPX(RobotContainer.Intake_3);
   
   public Intake() {
 
   }
   public void setBothMotors(double speed){
-    intake1VictorSP.set(speed);
-    intake2VictorSP.set(speed);
+    intake1VictorSPX.set(ControlMode.PercentOutput, speed);
+    intake2VictorSPX.set(ControlMode.PercentOutput, speed);
   }
   public void initDefaultCommand(){
     setDefaultCommand(new IntakeMove());

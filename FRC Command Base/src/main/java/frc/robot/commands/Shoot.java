@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.Robot;
@@ -17,6 +18,7 @@ public class Shoot extends CommandBase {
    * Creates a new Shoot.
    */
   public Shoot() {
+    Robot.shooter.setSettings();
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.shooter);
   }
@@ -24,13 +26,17 @@ public class Shoot extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
- 
-  ;
+     double speed = -.4*Robot.m_Constants.getjoystickAxis(RobotContainer.shooterAxis_3)+.6;
+      Robot.shooter.setMaster(speed);
+      SmartDashboard.putNumber("Shooter Output Top", Robot.shooter.getTopShooterOutPut() );
+      SmartDashboard.putNumber("Shooter Output Bottom", Robot.shooter.getBottomShooterOutPut() );
+     
   }
 
   // Called once the command ends or is interrupted.

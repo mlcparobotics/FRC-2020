@@ -8,10 +8,15 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.Convey;
+//import frc.robot.commands.Convey;
 import frc.robot.commands.IntakeMove;
+import frc.robot.commands.Shoot;
 import frc.robot.commands.TankDrive;
+import frc.robot.subsystems.Conveyor;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
@@ -24,12 +29,15 @@ import frc.robot.subsystems.Shooter;
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   public static DriveTrain driveTrain = new DriveTrain();
-private RobotContainer m_robotContainer;
-public static Constants m_Constants;
+private RobotContainer m_robotContainer ;
+public static Constants m_Constants = new Constants();
 private Command TankDrive= new TankDrive();
 public static Intake intake = new Intake();
 private Command IntakeMove = new IntakeMove();
 public static Shooter shooter = new Shooter();
+private Command Shoot = new Shoot();
+public static Conveyor conveyor = new Conveyor();
+private Command convey = new Convey();
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -109,6 +117,9 @@ public static Shooter shooter = new Shooter();
   public void teleopPeriodic() {
     TankDrive.execute();
     IntakeMove.execute();
+    Shoot.execute();
+    //Convey.execute();
+    
   }
 
   @Override
@@ -122,5 +133,9 @@ public static Shooter shooter = new Shooter();
    */
   @Override
   public void testPeriodic() {
+    Shoot.execute();
+    IntakeMove.execute();
+    convey.execute();
   }
+  
 }

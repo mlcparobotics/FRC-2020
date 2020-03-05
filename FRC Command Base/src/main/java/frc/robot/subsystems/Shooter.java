@@ -20,13 +20,15 @@ public class Shooter extends SubsystemBase {
   private TalonSRX shooterBottom = new TalonSRX(RobotContainer.ShooterBottom_1);
   
   public Shooter() {
-    shooterBottom.follow(shooterTop);
+    }
+public void setSettings(){
+  shooterBottom.follow(shooterTop);
     shooterBottom.setInverted(InvertType.FollowMaster);
     shooterTop.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
     shooterBottom.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
     shooterTop.setSelectedSensorPosition(0, 0, 10);
-  }
-
+  
+}
   
   
   public void isInvtered(boolean x){
@@ -34,7 +36,13 @@ public class Shooter extends SubsystemBase {
   }
   public void setMaster(double speed){
     shooterTop.set(ControlMode.PercentOutput, speed);
-  }
+    }
+    public double getTopShooterOutPut(){
+      return shooterTop.getMotorOutputPercent();
+    }
+    public double getBottomShooterOutPut(){
+      return shooterBottom.getMotorOutputPercent();
+    }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

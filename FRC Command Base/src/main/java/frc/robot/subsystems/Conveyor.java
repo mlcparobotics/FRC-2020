@@ -11,16 +11,16 @@ import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
 
-public class Conveyer extends SubsystemBase {
+public class Conveyor extends SubsystemBase {
   /**
    * Creates a new Conveyer.
    */
-  private VictorSP conveyerVictorSP = new VictorSP(RobotContainer.Conveyer_3);
-  public Conveyer() {
+  private VictorSP conveyorVictorSP = new VictorSP(RobotContainer.Conveyor_6);
+  public Conveyor() {
 
   }
   public void setConveyerSpeed(double speed){
-    conveyerVictorSP.set(speed);
+    conveyorVictorSP.set(speed);
   }
   @Override
   public void periodic() {

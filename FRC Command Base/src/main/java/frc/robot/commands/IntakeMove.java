@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.Robot;
@@ -30,9 +31,14 @@ public class IntakeMove extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double RightTrigger = Robot.m_Constants.driveControllerAxis(RobotContainer.Trigger_3);
-    Robot.intake.setBothMotors(Constants.intakeMagicNum);
+    if(Robot.m_Constants.getJoystickButton(RobotContainer.button_5)){
+      Robot.intake.setBothMotors(Robot.m_Constants.magicNumIntake);
 
+    }else{
+      Robot.conveyor.setConveyerSpeed(0);
+
+    }
+  
   }
 
   // Called once the command ends or is interrupted.

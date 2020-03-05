@@ -22,10 +22,15 @@ import edu.wpi.first.wpilibj.Joystick;
 public final class Constants {
     private Joystick driveController = new Joystick(RobotContainer.Drive_Controller_0);
     private Joystick joystick = new Joystick(RobotContainer.Joystick_1);
+    public double getjoystickAxis(int axis){
+        return joystick.getRawAxis(axis);
+    }
+    public boolean getJoystickButton(int button){
+        return joystick.getRawButton(button);
+    }
     public double driveControllerAxis(int axis){
        return driveController.getRawAxis(axis);
     }
-    public static double intakeMagicNum = .4;
-    public static double shooterMagicNum = .4;
-    
+    public double magicNumIntake = .4;
+    public double magicNumConvey = .3;
 }

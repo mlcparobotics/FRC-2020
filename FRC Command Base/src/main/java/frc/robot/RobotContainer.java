@@ -33,17 +33,21 @@ public class RobotContainer {
        public static final int Intake_2 = 2;
         public static final int Intake_3 = 3;
       //Conveyer PWM ports VICTORSP
-      public static final int Conveyer_3 = 0;
+      public static final int Conveyor_6 = 6;
+      //Controllers
+      public static final int Joystick_1 = 1;//one stick joystick
+      public static final int Drive_Controller_0 = 0;//logitech controller
       //Controller MAIN- LOGITECH
-        public static final int Drive_Controller_0 = 0;
+        
         public static final int Left_Stick_1 = 1;
         public static final int Right_Stick_5= 5;
-        public static final int Joystick_1 = 1;
+        public static int Trigger_3 = 3;
         public static final int Shooter_2 = 2;
-      
+      public static final int shooterAxis_3 = 3;
+//Things pressed on Large Joystickxs
 
-public static int Trigger_3 = 3;
-
+public static int button_5= 5;
+public static int button_6= 6;
 /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */

@@ -45,6 +45,7 @@ public class RobotContainer {
         public static final int Shooter_2 = 2;
       public static final int shooterAxis_3 = 3;
 //Things pressed on Large Joystickxs
+	public static final int ColorWheel_SPARK_PWM_4 = 4;
 
 public static int button_5= 5;
 public static int button_6= 6;

@@ -36,7 +36,7 @@ public final class Constants {
     }
     public double magicNegFlip = -1;
     public double flipControl = 0;
-    public double magicNumIntake = -.4;
+    public double magicNumIntake = -.5;
     public double magicNumConvey = .3;
     public double magicMoveForwardAt4 = .3;
 

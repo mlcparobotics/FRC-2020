@@ -11,12 +11,14 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.ColorWheelMove;
 import frc.robot.commands.Convey;
 //import frc.robot.commands.Convey;
 import frc.robot.commands.IntakeMove;
 import frc.robot.commands.MoveForward;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.TankDrive;
+import frc.robot.subsystems.ColorWheel;
 import frc.robot.subsystems.Conveyor;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
@@ -40,6 +42,8 @@ private Command Shoot = new Shoot();
 public static Conveyor conveyor = new Conveyor();
 private Command convey = new Convey();
 private Command MoveForward = new MoveForward();
+public static ColorWheel ColorWheel = new ColorWheel();
+private Command ColorWheelMove = new ColorWheelMove();
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -139,6 +143,7 @@ private Command MoveForward = new MoveForward();
     IntakeMove.execute();
     convey.execute();
     TankDrive.execute();
+    ColorWheelMove.execute();
   }
   
 }

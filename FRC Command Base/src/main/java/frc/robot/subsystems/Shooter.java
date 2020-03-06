@@ -22,7 +22,7 @@ public class Shooter extends SubsystemBase {
   public Shooter() {
     }
 public void setSettings(){
-  shooterBottom.follow(shooterTop);
+  //shooterBottom.follow(shooterTop);
     shooterBottom.setInverted(InvertType.FollowMaster);
     shooterTop.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
     shooterBottom.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
@@ -36,7 +36,9 @@ public void setSettings(){
   }
   public void setMaster(double speed){
     shooterTop.set(ControlMode.PercentOutput, speed);
-    }
+    shooterBottom.set(ControlMode.PercentOutput, speed*2);
+    
+  }
     public double getTopShooterOutPut(){
       return shooterTop.getMotorOutputPercent();
     }

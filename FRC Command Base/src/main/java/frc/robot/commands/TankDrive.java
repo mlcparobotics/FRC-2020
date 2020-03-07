@@ -41,7 +41,7 @@ public class TankDrive extends CommandBase {
     }
     double RightY = Robot.m_Constants.driveControllerAxis(RobotContainer.Right_Stick_5);
     double LeftY = Robot.m_Constants.driveControllerAxis(RobotContainer.Left_Stick_1);
-    Robot.driveTrain.setBothMotors(toggle*LeftY,-RightY*toggle);
+    Robot.driveTrain.setBothMotors((LeftY*.8),(-RightY*.8));
     
   }
 

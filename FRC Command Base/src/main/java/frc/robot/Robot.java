@@ -7,8 +7,10 @@
 
 package frc.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.ColorWheelMove;
@@ -32,18 +34,24 @@ import frc.robot.subsystems.Shooter;
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   public static DriveTrain driveTrain = new DriveTrain();
-private RobotContainer m_robotContainer ;
-public static Constants m_Constants = new Constants();
+private RobotContainer m_robotContainer;
+private UsbCamera colorwheelcam;
+
+//COMMANDS
 private Command TankDrive= new TankDrive();
-public static Intake intake = new Intake();
 private Command IntakeMove = new IntakeMove();
-public static Shooter shooter = new Shooter();
 private Command Shoot = new Shoot();
-public static Conveyor conveyor = new Conveyor();
 private Command convey = new Convey();
 private Command MoveForward = new MoveForward();
-public static ColorWheel ColorWheel = new ColorWheel();
 private Command ColorWheelMove = new ColorWheelMove();
+
+//SUBSYSTEMS dec
+public static Constants m_Constants = new Constants();
+public static Intake intake = new Intake();
+public static Shooter shooter = new Shooter();
+public static Conveyor conveyor = new Conveyor();
+
+public static ColorWheel ColorWheel = new ColorWheel();
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -55,6 +63,8 @@ private Command ColorWheelMove = new ColorWheelMove();
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+    colorwheelcam = CameraServer.getInstance().startAutomaticCapture(0);
+    
   }
 
   /**
@@ -92,9 +102,9 @@ private Command ColorWheelMove = new ColorWheelMove();
     
 
     // schedule the autonomous command (example)
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.schedule();
-    }
+    // if (m_autonomousCommand != null) {
+    //   m_autonomousCommand.schedule();
+    // }
   }
 
   /**
@@ -102,7 +112,7 @@ private Command ColorWheelMove = new ColorWheelMove();
    */
   @Override
   public void autonomousPeriodic() {
-    MoveForward.execute();
+    //MoveForward.execute();
   }
 
   @Override
@@ -121,10 +131,11 @@ private Command ColorWheelMove = new ColorWheelMove();
    */
   @Override
   public void teleopPeriodic() {
-    TankDrive.execute();
-    IntakeMove.execute();
     Shoot.execute();
-    //Convey.execute();
+    IntakeMove.execute();
+    convey.execute();
+    TankDrive.execute();
+    ColorWheelMove.execute();
     
   }
 

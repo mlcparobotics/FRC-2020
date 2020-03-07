@@ -7,9 +7,9 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Joystick;
+//import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
+//import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
@@ -34,7 +34,10 @@ public class IntakeMove extends CommandBase {
     if(Robot.m_Constants.getJoystickButton(RobotContainer.button_5)){
       Robot.intake.setBothMotors(Robot.m_Constants.magicNumIntake);
 
-    }else{
+    }else if(Robot.m_Constants.getJoystickButton(RobotContainer.button_11)){
+      Robot.intake.setBothMotors(Robot.m_Constants.magicNumIntake*1.5);
+    }
+    else{
       Robot.intake.setBothMotors(0);
 
     }

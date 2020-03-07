@@ -8,10 +8,10 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.Joystick;
+//import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 
-import edu.wpi.first.wpilibj2.command.Command;
+//import edu.wpi.first.wpilibj2.command.Command;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -45,10 +45,14 @@ public class RobotContainer {
         public static final int Shooter_2 = 2;
       public static final int shooterAxis_3 = 3;
 //Things pressed on Large Joystickxs
-	public static final int ColorWheel_SPARK_PWM_4 = 4;
-
 public static int button_5= 5;
 public static int button_6= 6;
+public static int button_11 = 11;
+
+//Color Wheel PWM ports 
+	public static final int ColorWheel_SPARK_PWM_4 = 4;
+
+
 /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */

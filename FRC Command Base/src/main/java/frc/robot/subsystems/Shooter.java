@@ -11,7 +11,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
+//import com.ctre.phoenix.motorcontrol.can.BaseMotorController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
 
@@ -36,7 +36,7 @@ public void setSettings(){
   }
   public void setMaster(double speed){
     shooterTop.set(ControlMode.PercentOutput, speed);
-    shooterBottom.set(ControlMode.PercentOutput, speed*2);
+    shooterBottom.set(ControlMode.PercentOutput, speed);
     
   }
     public double getTopShooterOutPut(){

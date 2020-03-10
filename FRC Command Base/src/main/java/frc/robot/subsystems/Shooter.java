@@ -35,7 +35,7 @@ public void setSettings(){
     shooterTop.setInverted(x);
   }
   public void setMaster(double speed){
-    shooterTop.set(ControlMode.PercentOutput, speed);
+    shooterTop.set(ControlMode.PercentOutput, 0);
     shooterBottom.set(ControlMode.PercentOutput, speed);
     
   }
@@ -45,6 +45,12 @@ public void setSettings(){
     public double getBottomShooterOutPut(){
       return shooterBottom.getMotorOutputPercent();
     }
+    public void setTopShooter(double speed){
+        shooterTop.set(ControlMode.PercentOutput, speed);
+    }
+    public void setBottomShooter(double speed){
+      shooterBottom.set(ControlMode.PercentOutput, speed);
+  }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

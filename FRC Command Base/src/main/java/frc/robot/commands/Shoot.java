@@ -33,7 +33,8 @@ public class Shoot extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-     double speed = -.4*Robot.m_Constants.getjoystickAxis(RobotContainer.shooterAxis_3)+.6;
+     double speed = -.25*Robot.m_Constants.getjoystickAxis(RobotContainer.shooterAxis_3)+.45;
+     //double speed = -.25*Robot.m_Constants.getjoystickAxis(RobotContainer.shooterAxis_3)+.45;
      
      if(Robot.m_Constants.getJoystickButton(4)){
        toggle=0;
@@ -42,6 +43,8 @@ public class Shoot extends CommandBase {
        toggle =1;
      }
      Robot.shooter.setMaster(speed*toggle);
+    // Robot.shooter.setTopShooter(speed*toggle);
+    // Robot.shooter.setBottomShooter(speed*toggle);
       SmartDashboard.putNumber("Shooter Output Top", Robot.shooter.getTopShooterOutPut() );
       SmartDashboard.putNumber("Shooter Output Bottom", Robot.shooter.getBottomShooterOutPut() );
      

@@ -33,12 +33,15 @@ public class TankDrive extends CommandBase {
   @Override
   public void execute() {
     
-    if(Robot.m_Constants.getJoystickButton(3)){
-      toggle=-1;
-    }
-    if(Robot.m_Constants.getJoystickButton(2)){
-      toggle =1;
-    }
+    // if(Robot.m_Constants.getJoystickButton(3)){
+    //   toggle=-1;
+    // }
+    // if(Robot.m_Constants.getJoystickButton(2)){
+    //   toggle =1;
+    // }
+    // if(Robot.m_Constants.getDriveControllerButton(2)){
+    //   toggle = .4;
+    // }
     double RightY = Robot.m_Constants.driveControllerAxis(RobotContainer.Right_Stick_5);
     double LeftY = Robot.m_Constants.driveControllerAxis(RobotContainer.Left_Stick_1);
     Robot.driveTrain.setBothMotors((LeftY*.8),(-RightY*.8));

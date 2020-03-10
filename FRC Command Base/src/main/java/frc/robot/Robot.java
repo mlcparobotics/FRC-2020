@@ -7,12 +7,17 @@
 
 package frc.robot;
 
+//import org.graalvm.compiler.lir.aarch64.AArch64Move.Move;
+
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.ScheduleCommand;
+import edu.wpi.first.wpilibj2.command.WaitUntilCommand;
 import frc.robot.commands.ColorWheelMove;
 import frc.robot.commands.Convey;
 //import frc.robot.commands.Convey;
@@ -36,7 +41,7 @@ public class Robot extends TimedRobot {
   public static DriveTrain driveTrain = new DriveTrain();
 private RobotContainer m_robotContainer;
 private UsbCamera colorwheelcam;
-
+private Timer myTimer = new Timer();
 //COMMANDS
 private Command TankDrive= new TankDrive();
 private Command IntakeMove = new IntakeMove();
@@ -99,22 +104,32 @@ public static ColorWheel ColorWheel = new ColorWheel();
    */
   @Override
   public void autonomousInit() {
-    
+  
+
+    myTimer.start();
+    myTimer.reset();
 
     // schedule the autonomous command (example)
-    // if (m_autonomousCommand != null) {
-    //   m_autonomousCommand.schedule();
-    // }
+   
+    
   }
 
   /**
    * This function is called periodically during autonomous.
    */
   @Override
-  public void autonomousPeriodic() {
-    //MoveForward.execute();
+  public void autonomousPeriodic() {  
+    if(myTimer.get()<4){
+      MoveForward.execute();
+    }else{
+      MoveForward.cancel();
+    }
+    
+    
+  
+    
+   
   }
-
   @Override
   public void teleopInit() {
     // This makes sure that the autonomous stops running when
@@ -124,6 +139,9 @@ public static ColorWheel ColorWheel = new ColorWheel();
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    
+
+
   }
 
   /**
@@ -155,6 +173,7 @@ public static ColorWheel ColorWheel = new ColorWheel();
     convey.execute();
     TankDrive.execute();
     ColorWheelMove.execute();
+    
   }
   
 }
